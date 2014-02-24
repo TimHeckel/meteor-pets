@@ -1,0 +1,8 @@
+{
+    "name": "meteorpets",
+    "description": "Woah. Feed these animals before they starve. But not too much!",
+    "homepage": "https://github.com/TimHeckel/meteor-pets",
+    "author": "Tim Heckel  (http://timheckel.com)",
+    "version": "0.0.1",
+    "git": "https://github.com/TimHeckel/meteor-pets.git"
+}
