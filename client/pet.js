@@ -13,7 +13,7 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
 		_feed = doc.foodId;
 
     	$("#pen").html("");
-    	var _animalUrl = [Meteor.absoluteUrl(), "packages/pets/client/", _type, ".png"].join('');
+    	var _animalUrl = [Meteor.absoluteUrl(), "packages/meteorpets/client/", _type, ".png"].join('');
     	var c = $("<h2 style='text-align:center;margin-bottom:-10px;' id='name'></h2><p style='text-align:center' id='intro'><p><table style='width:100%;height:100%;margin-top:-80px;'><tbody><tr><td style='vertical-align:middle; text-align:center' id='pen'></td></tr></tbody></table><span id='messages'></span>");
 		$(".fence").append(c);
 
@@ -39,7 +39,11 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
 
     function init() {
 
-    	Pets.upsert({ _id: _name }, { _id: _name, owner: _owner, type: _type, boyOrGirl: _boyOrGirl, foodId: _feed });
+    	if (!Pets.findOne({_id: _name})) {
+    		Pets.insert({ _id: _name, owner: _owner, type: _type, boyOrGirl: _boyOrGirl, foodId: _feed });
+    	} else {
+    		Pets.update({ _id: _name }, { $set: { owner: _owner, type: _type, boyOrGirl: _boyOrGirl, foodId: _feed } });
+    	}
 
 		Deps.autorun(function() {
 			Pets.find({_id: _name}).observe({
