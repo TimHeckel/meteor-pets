@@ -3,7 +3,7 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
 	if (!(this instanceof MeteorPet))
     	return new MeteorPet(opts);
 
-    var _img, _messages, _nutrition = 2000;
+    var _img, _nutrition = 2000;
 
     function _set(doc) {
     	_type = doc.type;
@@ -30,7 +30,7 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
     	var _food = Food.findOne({ _id: _feed });
     	if (_food) {
 			_img.animate({ width: _food.calories + "px", duration: 2000 });
-			_messages.html("Mmmmm...." + _feed + "!");
+			$("#messages").html("Mmmmm...." + _feed + "!");
 			console.log("nutriation ", _food.nutrition * 10);
 			_nutrition = _food.nutrition * 10;
 			_sway();
@@ -111,7 +111,7 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
  	_self.feed = function(food) {
  		Pets.update({ _id: _name }, { $set: { foodId: food } });
  	};
- 	
+
     init();
 
     return _self;
