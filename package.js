@@ -34,13 +34,15 @@ Package.on_use(function (api) {
 	api.add_files('client/templates/pets/individual_pet.html', "client");
 	api.add_files('client/templates/pets/individual_pet.js', "client");
 	api.add_files('client/templates/pets/save_pet.html', "client");
+	api.add_files('client/templates/pets/save_pet.js', "client");
 
 	api.add_files('client/templates/food/food.html', "client");
 	api.add_files('client/templates/food/individual_food.html', "client");
 	api.add_files('client/templates/food/save_food.html', "client");    
+	api.add_files('client/templates/food/save_food.js', "client"); 
     
     api.export("Pets");
     api.export("Food");
     api.export("Pet");
-
+    api.export("Router");
 });

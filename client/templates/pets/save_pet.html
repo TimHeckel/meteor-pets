@@ -1,5 +1,48 @@
 <template name="save_pet">
 	
-	<h1>Save Your Pet</h1>
+	<div id="savePet">
+		{{#with pet}}
+
+			<h1>Save Your Pet {{name}}</h1>
+			<a href='/pets'>Back to all pets</a> 
+
+			<div style="padding:10px;">
+				<b>Pet Name</b><br/>
+				<input type="text" id="petName" placeholder="My Pet's Name"/>
+			</div>
+
+			<div style="padding:10px;">
+				<b>Is this a boy or a girl?</b><br/>
+				<select id="boyOrGirl">
+					<option value="he">Boy</option>
+					<option value="she">Girl</option>
+				</select>
+			</div>
+
+			<div style="padding:10px;">
+				<b>Pet Type</b><br/>
+				<select id="petType">
+					<option value="rhino">Rhino</option>
+					<option value="giraffe">Giraffe</option>
+					<option value="monkey">Monkey</option>
+				</select>
+			</div>
+
+			<div style="padding:10px">
+				<b>What food would you like to feed?</b><br/>
+				<select id="foodId">
+					{{#each food}}
+						<option value="{{_id}}">{{_id}}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			<div style="padding:10px">
+				<button id="btnSave">Save</button>
+			</div>
+			
+		{{/with}}
+
+	</div>
 
 </template>

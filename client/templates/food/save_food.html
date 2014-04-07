@@ -1,3 +1,34 @@
-<template name="save_food">
-	
+<template name="save_food">	
+	<div id="saveFood">
+
+		{{#with food}}
+		
+			<h1>Save Your Food {{_id}}</h1>
+			<a href='/food'>Back to all food</a>
+
+			<div style="padding:10px;">
+				<b>Food Name</b><br/>
+				<input type="text" id="foodName" placeholder="Name of food" value="{{_id}}"/>
+			</div>
+
+			<div style="padding:10px;">
+				<b>Nutrition</b><br/>
+				<i>The higher the number, the slower your pet moves because they're sleepy on all the good nutrition.</i>
+				<br/>
+				<input type="text" id="nutrition" placeholder="Number 100-10000" value="{{nutrition}}"/>
+			</div>
+
+			<div style="padding:10px;">
+				<b>Calories</b><br/>
+				<i>How fat is your pet gonna get?</i> <br/>
+				<input type="text" id="nutrition" placeholder="Number 100-800" value="{{calories}}"/>
+			</div>
+
+			<div style="padding:10px">
+				<button id="btnSave">Save</button>
+			</div>
+			
+		{{/with}}
+
+	</div>
 </template>

@@ -1,5 +1,18 @@
 <template name="food">
 
-	<h1>Save Your Food</h1>
+	<h1>Woah! Look at all this food!</h1>
+	<a href="/food/save">Make some new food &raquo;</a><br/>
+	<a href="/pets">Go back to the pets &raquo;</a>
+
+
+	<div class="ourFood">
+		{{#each food}}
+			<div class="foodItem">
+				<h1>{{_id}}</h1>
+				<br/>Nutrition: <i>{{nutrition}}</i>
+				<br/>Calories: <i>{{calories}}</i>
+			</div>
+		{{/each}}
+	</div>
 
 </template>
