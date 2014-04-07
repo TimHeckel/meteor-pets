@@ -13,7 +13,7 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
 		_feed = doc.foodId;
 
     	$("#pen").html("");
-    	var _animalUrl = ["/packages/meteorpets/client/", _type, ".png"].join('');
+    	var _animalUrl = ["/packages/meteorpets/client/images/", _type, ".png"].join('');
     	var c = $("<h2 style='text-align:center;margin-bottom:-10px;' id='name'></h2><p style='text-align:center' id='intro'><p><table style='width:100%;height:100%;margin-top:-80px;'><tbody><tr><td style='vertical-align:middle; text-align:center' id='pen'></td></tr></tbody></table><span id='messages'></span>");
 		$(".fence").append(c);
 
@@ -31,7 +31,6 @@ MeteorPet = function(_owner, _type, _name, _boyOrGirl, _feed) {
     	if (_food) {
 			_img.animate({ width: _food.calories + "px", duration: 2000 });
 			$("#messages").html("Mmmmm...." + _feed + "!");
-			console.log("nutriation ", _food.nutrition * 10);
 			_nutrition = _food.nutrition * 10;
 			_sway();
 		}

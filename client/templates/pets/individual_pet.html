@@ -1,0 +1,16 @@
+<template name="individual_pet">
+	{{#with pet}}
+		<div class="ifence">
+			<div style="padding:5px;">
+				<a href="/pets">Go back to the other pets!</a>
+			</div>
+			<h1 class="petIntro" data-id="{{_id}}">Awww. I love you, {{_id}}.</h1>
+
+			<div class="pen" data-id="{{_id}}">
+				<img src="{{getPetUrl}}" class="virtual-pet" data-id="{{_id}}" style="width:100px;"/>
+			</div>
+			
+			<div class="message" data-id="{{_id}}"></div>
+		</div>
+	{{/with}}
+</template>

@@ -1,0 +1,23 @@
+<template name="pets">
+
+	<h1>Behold, Your Virtual Pets!</h1>
+
+	<div class="ourPets">
+		{{#each pet}}
+			<div class="fence" data-id="{{_id}}">
+				<h2 class="petName">{{name}}</h2>
+
+				<p class="petIntro" data-id="{{_id}}">
+					Meet {{_id}}, {{boyOrGirl}} loves you <b>so</b> much.
+				</p>
+
+				<div class="pen" data-id="{{_id}}">
+					<img src="{{getPetUrl}}" class="virtual-pet" data-id="{{_id}}" style="width:100px;"/>
+				</div>
+
+				<div class="message" data-id="{{_id}}"></div>
+			</div>
+		{{/each}}
+	</div>
+
+</template>
