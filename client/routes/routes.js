@@ -1,3 +1,7 @@
+Router.configure({
+	loadingTemplate: "loading"
+});
+
 Router.map(function () {
 
 	//PETS
@@ -18,12 +22,8 @@ Router.map(function () {
 	    path: "/pets/:id"
 	    , template: "individual_pet"
 	    , onBeforeAction: function() {
-	    	console.log("setting pet");
 	    	Session.set(Pet.Constants.selectedPetId, this.params.id);
 	    }
-	  	, waitOn: function() {
-	  		return Meteor.subscribe("pets");
-	  	}
 	});
 
 	//FOOD

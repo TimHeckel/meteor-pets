@@ -11,7 +11,7 @@ Package.on_use(function (api) {
 	api.add_files("server/rules.js", "server");
 	api.add_files("server/publish.js", "server");
 
-	api.add_files("client/subscribe.js", "client");
+	api.add_files("client/lib/watcher.js", "client");
 
 	api.add_files('client/images/giraffe.png', "client");
 	api.add_files('client/images/monkey.png', "client");
@@ -28,6 +28,7 @@ Package.on_use(function (api) {
 
 	api.add_files('client/routes/routes.js', "client");
 
+	api.add_files('client/templates/loading.html', "client");
 	api.add_files('client/templates/pets/pets.html', "client");
 	api.add_files('client/templates/pets/pets.js', "client");
 	api.add_files('client/templates/pets/individual_pet.html', "client");

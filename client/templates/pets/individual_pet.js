@@ -3,27 +3,31 @@ var _pet = function() {
 	return Pets.findOne(Session.get(Pet.Constants.selectedPetId));
 };
 
+Template.individual_pet.rendered = function() {
+	$(".allPets").on("click", "#btnFeedPet", function() {
+		var _foodId = $("#petFood").val();
+		Pets.update({ _id: Session.get(Pet.Constants.selectedPetId) }, { $set: { foodId: _foodId } });
+	});
+};
+
+Template.individual_pet.food = function() {
+	return Food.find();
+};
+
+Template.individual_pet.isFoodSelected = function(foodId) {
+	return _pet().foodId === foodId;
+};
+
+Template.individual_pet.foodName = function() {
+	var f = Food.findOne(this.foodId);
+	return f ? f._id : "Mystery Meat";
+};
+
 Template.individual_pet.pet = function() {
 	window.setTimeout(function() {
-		_watcher = Deps.autorun(function() {
-			Pets.find({ _id: Session.get(Pet.Constants.selectedPetId) }).observe({
-				added: function(doc) {
-					var _img = $(".virtual-pet[data-id='" + doc._id + "']");
-					console.log("img", _img);
-					Pet.Animate($(".virtual-pet[data-id='" + doc._id + "']"), _pet());
-				},
-				changed: function(doc) {					
-					Pet.Animate($(".virtual-pet[data-id='" + doc._id + "']"), _pet());
-				}
-				, removed: function(doc) {
-					var _pen = $(".pen[data-id='" + doc._id + "']");
-					var _intro = $(".petIntro[data-id='" + doc._id + "']");
-					_intro.html("Oh dear " + doc._id + " - we will miss you SO much!");
-					_pen.html(":(").css("font-size", "100pt");
-				}
-			});
-		});
-	}, 500);
+		var _img = $(".virtual-pet[data-id='" + Session.get(Pet.Constants.selectedPetId) + "']");
+		Pet.Animate(_img, _pet());
+	}, 1000);
 	return _pet();
 };
 

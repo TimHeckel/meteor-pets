@@ -1,16 +1,43 @@
 <template name="individual_pet">
-	{{#with pet}}
-		<div class="ifence">
-			<div style="padding:5px;">
-				<a href="/pets">Go back to the other pets!</a>
-			</div>
-			<h1 class="petIntro" data-id="{{_id}}">Awww. I love you, {{_id}}.</h1>
+	<div class="allPets">
+		{{#with pet}}
+			<div class="ifence">
+				<div style="padding:5px;">
+					<a href="/pets">Go back to the other pets!</a>
+				</div>
+				<div style="float:left;width:200px;">
 
-			<div class="pen" data-id="{{_id}}">
-				<img src="{{getPetUrl}}" class="virtual-pet" data-id="{{_id}}" style="width:100px;"/>
+					<div style="padding:5px;">
+						{{name}} is currenting eating <b>{{foodName}}</b>.
+						<br/>Do you want to feed something else?
+					</div>
+
+					<select id="petFood">
+						{{#each food}}
+							{{#if isFoodSelected _id}}
+								<option value="{{_id}}" selected>{{_id}}</option>
+							{{else}}
+								<option value="{{_id}}">{{_id}}</option>	
+							{{/if}}
+						{{/each}}
+					</select>
+
+					<div style="padding:5px;">
+						<button id="btnFeedPet">Change {{_id}}'s Food</button>
+					</div>
+				</div>
+
+				<div style="float:right;width:600px;">
+					<h1 class="petIntro" data-id="{{_id}}">Awww. I love you, {{_id}}.</h1>
+
+					<div class="pen" data-id="{{_id}}">
+						<img src="{{getPetUrl}}" class="virtual-pet" data-id="{{_id}}" style="width:100px;"/>
+					</div>
+
+					<div class="message" data-id="{{_id}}"></div>
+				</div>
+				
 			</div>
-			
-			<div class="message" data-id="{{_id}}"></div>
-		</div>
-	{{/with}}
+		{{/with}}
+	</div>
 </template>
