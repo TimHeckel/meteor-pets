@@ -3,7 +3,7 @@
     "description": "Woah. Feed these animals before they starve. But not too much!",
     "homepage": "https://github.com/TimHeckel/meteor-pets",
     "author": "Tim Heckel  (http://timheckel.com)",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "git": "https://github.com/TimHeckel/meteor-pets.git",
     "packages": {
 	    "iron-router": "0.7.0"

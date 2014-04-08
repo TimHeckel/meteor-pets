@@ -45,4 +45,5 @@ Package.on_use(function (api) {
     api.export("Food");
     api.export("Pet");
     api.export("Router");
+    api.export("Template");
 });
